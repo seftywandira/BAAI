@@ -1,6 +1,5 @@
 #
-# Sefty G14460772, 2025/09/24
-# file: 0_template.py
+# Sefty 
 # Short description of the task
 #
 
