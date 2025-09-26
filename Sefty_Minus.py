@@ -5,8 +5,8 @@
 #
 
 # 1. Input
-X = 8
-Y = 7
+X = 17
+Y = 9
 
 # 2. Process
 Sum = X - Y
