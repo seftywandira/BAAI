@@ -9,7 +9,12 @@ X = input('First number;')
 Y = input('Second number;')
 
 # 2. Process
-Sum = X + Y
+X1 = int(X)
+Y1 = int(Y)
+
+SUM = X + Y
+SUM1 = X1 + Y1
 
 # 3. Output
-print(f'Result {Sum}')
+print(f'Result {SUM}')
+print(f'Result {SUM1}')
