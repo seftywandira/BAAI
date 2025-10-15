@@ -14,27 +14,24 @@ for i, file in enumerate(file_list):
     df = pd.read_excel(file)
 
     # 2. Process: Calculate sum of all numeric columns
-    sums_series = df.select_dtypes(include='number').sum()
+    sum_series = df.select_dtypes(include='number').sum()
 
     # Create a total row DataFrame with the sums
-    total_row = pd.DataFrame([sums_series])
+    total_row = pd.DataFrame([sum_series])
 
-    #Optionally give a label for the row (e.g., 'Total')
-    sums['Name'] = 'Total' #Add a value for the non-numeric column
-
-    # 3. Append the total row to the DataFrame
+    # 3. Append the total row to the original DataFrame
     df_with_total = pd.concat([df,total_row], ignore_index=True)
 
-    # 3. Output
+    # 4. Output: print DataFrame with total row
     print(f'Processed file: {file}')
     print(df_with_total)
 
-    # 5. save the result
+    # 5. Save the result into a new Excel File
     output_name = file.replace('.xlsx', '_with_total.xlsx')
     df_with_total.to_excel(output_name, index=False)
     print(f"Saved result to {output_name}")
 
-    # Check if this the last file
+    # 6. Check if this the last file
     if i == len(file_list)-1:
         print("You reach the last file.")
     else:
