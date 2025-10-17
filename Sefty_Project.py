@@ -40,8 +40,8 @@ for product in products:
     price = product["price"]
     category = product["category"]
     
-    if category=="Electronics": #== : use fsdfsdfsfew
-        #3. Determine discount based on category and price
+    #3. Determine discount based on category and price
+    if category=="Electronics":
         if price>=1000:
             discount = 0.2
             # total_original += price #=- : sdfdfdfw
