@@ -40,7 +40,6 @@ for product in products:
     price = product["price"]
     category = product["category"]
     
-    #3. Determine discount based on category and price
     if category=="Electronics":
         if price>=1000:
             discount = 0.2
@@ -90,6 +89,6 @@ print("\n=== SUMMARY ===")
 
 #8. Print total statistics
 print(f"Total Products: {len(products)}")
-print("Total Original Price $%.2f"%(total_original))
+print("Total Original Price: $%.2f"%(total_original))
 print("Total Discount: $%.2f"%(total_discount_amount))
 print("Total Final Price: $%.2f"%(total_final))
