@@ -4,16 +4,36 @@
 # Apply correlation analysis to business problems
 #
 
-# 1. Input
 import pandas as pd
-import numpy as np 
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-df = pd.read_csv('Simple_Data.csv')
-# df = pd.read_csv('Correlataion_Analysis_Data.csv')
+from scipy import stats
+
+# 1. Input
+df = pd.read_csv('Correlation_Analysis_Data.csv')
+
+df.info()
+# print(df.iloc[:,1:6])
+# correlation, pvalue = stats.pearsonr(df['Marketing_Spend'],df['Sales_Revenue'])
+# df = pd.read_csv('Simple_Data.csv')
 
 # 2. Process
-print(df.isnull().sum)
+correlation_matrix = df.iloc[:,1:6].corr()
+
+print(correlation_matrix.round(3))
+
+# df[].corr()
+
+# print(df.isnull().sum())
+# print(df.isnull().sum().sum())
 
 # 3. Output
-print('Data loaded successfully!')
-print(f'Datset shape : {df.shape}')
+# print('Data loaded successfully!')
+# print(f'Datset shape : {df.shape}')
+# print(f'Correlation: {correlation:.4f}')
+# print(f'P value: {pvalue:.4e}')
+sns.heatmap(correlation_matrix)
+plt.tight_layout()
+plt.show()
