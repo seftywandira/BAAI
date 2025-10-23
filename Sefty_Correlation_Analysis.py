@@ -4,11 +4,15 @@
 # Apply correlation analysis to business problems
 #
 
+# Data Manipulation and Analysis
 import pandas as pd
 import numpy as np
+
+# Data Visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Statistical Analysis
 from scipy import stats
 
 # 1. Input
