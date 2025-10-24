@@ -29,6 +29,8 @@ dataset["Total_Reorder_Price"] = dataset["Reorder_Qty"]*dataset["Unit_Price"]
 # Calculate total reorder cost
 total_reorder_cost = dataset["Total_Reorder_Price"].sum()
 
+# print(f'is_below_qty_min: \n{is_qty_below_min}')
+
 print("INVENTORY REORDER REPORT")
 print("========================")
 print("Products Needing Reorder:\n")

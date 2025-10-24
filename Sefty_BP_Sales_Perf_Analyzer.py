@@ -32,7 +32,7 @@ dataset.loc[~is_target_met, "Bonus_Amount"] = 0.05*dataset["Monthly_Sales"]
 
 # Calculate total bonus to pay
 total_bonus = dataset["Bonus_Amount"].sum()
-print(is_target_met)
+print(f"is_target_met: \n{is_target_met}")
 # print("SALES PERFORMANCE REPORT")
 # print("========================")
 # for i in range(len(dataset)):

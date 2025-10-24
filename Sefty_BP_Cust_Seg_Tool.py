@@ -1,4 +1,4 @@
-# Sales Performance Analyzer
+# Customer Segmentation Tool
 
 # Import necessary libraries
 import pandas as pd
@@ -17,7 +17,7 @@ dataset['Customer_Category'] = ""
 # Add a "AVG_Order_Value" column and initialize it with zero
 dataset['AVG_Order_Value'] = 0
 
-# fungsi mask (jadi true or false) Calculate if each employee met their target (Yes/No)
+# By masking each row in the data frame, determine segments for each customer based on the money they spent by using boolean data type stored in below variables
 is_vip_customer = dataset["Total_Purchases"] > 10000
 lower_middle_limit = dataset["Total_Purchases"] >= 5000
 is_reg_customer = lower_middle_limit^is_vip_customer
@@ -28,14 +28,23 @@ dataset.loc[is_vip_customer, "Customer_Category"] = "VIP"
 dataset.loc[is_reg_customer, "Customer_Category"] = "Regular"
 dataset.loc[is_new_customer, "Customer_Category"] = "New"
 
-# fungsi mask (jadi true or false) Calculate Total_Reorder_Price: 
+# Calculate average order value: 
 dataset["AVG_Order_Value"] = round(dataset["Total_Purchases"]/dataset["Number_of_Orders"],2)
 
+# Calculate total VIP revenue
 total_vip_revenue = dataset.loc[dataset["Customer_Category"]=="VIP","Total_Purchases"].sum()
+
+# Do segmentation based on the mask
 vip_customer = dataset[dataset["Customer_Category"]=="VIP"].reset_index(drop=True)
 reg_customer = dataset[dataset["Customer_Category"]=="Regular"].reset_index(drop=True)
 new_customer = dataset[dataset["Customer_Category"]=="New"].reset_index(drop=True)
 
+# print(f'is_vip_customer: \n{is_vip_customer}')
+# print(f'lower_middle_limit: \n{lower_middle_limit}')
+# print(f'is_reg_customer: \n{is_reg_customer}')
+# print(f'is_new_customer: \n{is_new_customer}')
+
+# Print out the report
 vip_print_bool = False
 reg_print_bool = False
 new_print_bool = False
