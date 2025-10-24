@@ -4,10 +4,11 @@
 import pandas as pd
 
 # Read the Excel file
-file_name = "sales_data.xlsx"
+file_name = "sales_data.xlsx" 
 dataset = pd.read_excel(file_name)
 
-# Since there are trailing and leading spaces around column names and their contents, remove them
+# Since there are trailing and leading spaces around column names and their contents,
+# due to I copy from the instruction. So, I will remove them
 dataset.columns = dataset.columns.str.strip()
 dataset['Employee_Name'] = dataset['Employee_Name'].str.rstrip()
 
@@ -29,17 +30,20 @@ dataset.loc[~is_target_met, "Target_Status"] = "Target NOT MET"
 dataset.loc[is_target_met, "Bonus_Amount"] = 0.1*dataset["Monthly_Sales"]
 dataset.loc[~is_target_met, "Bonus_Amount"] = 0.05*dataset["Monthly_Sales"]
 
-print("SALES PERFORMANCE REPORT")
-print("========================")
-for i in range(len(dataset)):
-    print(dataset.loc[i,"Employee_Name"]
-          +
-          ": "+dataset.loc[i,"Target_Status"]
-          +
-          " | Sales: ${:,}".format(dataset.loc[i,"Monthly_Sales"])
-          +
-          " | Bonus: ${:,}".format(dataset.loc[i,"Bonus_Amount"])
-    )
+# Calculate total bonus to pay
+total_bonus = dataset["Bonus_Amount"].sum()
+print(is_target_met)
+# print("SALES PERFORMANCE REPORT")
+# print("========================")
+# for i in range(len(dataset)):
+#     print(dataset.loc[i,"Employee_Name"]
+#           +
+#           ": "+dataset.loc[i,"Target_Status"]
+#           +
+#           " | Sales: ${:,}".format(dataset.loc[i,"Monthly_Sales"])
+#           +
+#           " | Bonus: ${:,}".format(dataset.loc[i,"Bonus_Amount"])
+#     )
 
-# Calculate and print Total Bonus Amount
-print("Total Bonuses to Pay: ${:,}".format(dataset["Bonus_Amount"].sum()))
+# # Calculate and print Total Bonus Amount
+# print("\nTotal Bonuses to Pay: ${:,}".format(total_bonus))

@@ -7,7 +7,7 @@ import pandas as pd
 file_name = "inventory.xlsx"
 dataset = pd.read_excel(file_name)
 
-# Since there are trailing and leading spaces around column names and their contents, remove them
+# Since there are trailing and leading spaces around column names and their contents, due to I copy from the instruction. So, I will remove them
 dataset.columns = dataset.columns.str.strip()
 dataset['Product_Name'] = dataset['Product_Name'].str.rstrip()
 
